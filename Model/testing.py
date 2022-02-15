@@ -19,7 +19,10 @@ dataset = TrafficLightDataset(csv_file = test_file_loc, img_dir = test_image_dir
 dataloader = DataLoader(dataset, batch_size=1, shuffle=False, num_workers=2)
 
 net = LYTNet()
-checkpoint = torch.load(MODEL_PATH)
+if cuda_available:
+    checkpoint = torch.load(MODEL_PATH)
+else:
+    checkpoint = torch.load(MODEL_PATH, map_location=torch.device('cpu'))
 net.load_state_dict(checkpoint)
 net.eval()
 
