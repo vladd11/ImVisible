@@ -11,7 +11,7 @@ import numpy as np
 
 cuda_available = torch.cuda.is_available()
 
-test_file_loc = '/gdrive/MyDrive/Colab Notebooks/lights/testing'
+test_file_loc = '/gdrive/MyDrive/Colab Notebooks/lights/testing_file.csv'
 test_image_directory = '/gdrive/MyDrive/Colab Notebooks/lights/images'
 MODEL_PATH = '/gdrive/MyDrive/Colab Notebooks/lights/LytNetV2_weights'
 
