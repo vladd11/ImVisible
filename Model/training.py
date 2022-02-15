@@ -15,11 +15,11 @@ INIT_LR = 0.001
 WEIGHT_DECAY = 0.00005
 LR_DROP_MILESTONES = [400,600]
 
-train_file_dir = '/gdrive/Colab Notebooks/lights/training_file.csv'
-valid_file_dir = '/gdrive/Colab Notebooks/lights/validation_file.csv'
-train_img_dir = 'PATH/TO/876x657/IMAGES'
-valid_img_dir = 'PATH/TO/768x576/IMAGES'
-save_path = 'PATH/TO/SAVE/TRAINING/MODELS'
+train_file_dir = '/gdrive/MyDrive/Colab Notebooks/lights/training_file.csv'
+valid_file_dir = '/gdrive/MyDrive/Colab Notebooks/lights/validation_file.csv'
+train_img_dir = '/gdrive/MyDrive/Colab Notebooks/lights/dataset'
+valid_img_dir = '/gdrive/MyDrive/Colab Notebooks/lights/validation_dataset'
+save_path = '/gdrive/MyDrive/Colab Notebooks/lights'
 
 train_dataset = TrafficLightDataset(csv_file = train_file_dir, img_dir = train_img_dir)
 valid_dataset = TrafficLightDataset(csv_file = valid_file_dir, img_dir = valid_img_dir)
