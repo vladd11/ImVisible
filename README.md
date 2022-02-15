@@ -1,5 +1,7 @@
 # ImVisible: Pedestrian Traffic Light Dataset, LytNet Neural Network, and Mobile Application for the Visually Impaired
 
+Changes: optimized to use with Google colab.
+
 The implementation of the work done in the following two papers: https://arxiv.org/abs/1907.09706, https://arxiv.org/abs/1909.09598.
 
 ### Introduction
