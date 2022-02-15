@@ -11,9 +11,9 @@ import numpy as np
 
 cuda_available = torch.cuda.is_available()
 
-test_file_loc = '/PATH/TO/TESTING/ANNOTATIONS'
-test_image_directory = '/PATH/TO/768x576/IMAGES'
-MODEL_PATH = '/PATH/TO/TRAINED/MODEL'
+test_file_loc = '/gdrive/MyDrive/Colab Notebooks/lights/testing'
+test_image_directory = '/gdrive/MyDrive/Colab Notebooks/lights/images'
+MODEL_PATH = '/gdrive/MyDrive/Colab Notebooks/lights/LytNetV2_weights'
 
 dataset = TrafficLightDataset(csv_file = test_file_loc, root_dir = test_image_directory)
 dataloader = DataLoader(dataset, batch_size=1, shuffle=False, num_workers=2)
