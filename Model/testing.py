@@ -15,7 +15,7 @@ test_file_loc = '/gdrive/MyDrive/Colab Notebooks/lights/testing'
 test_image_directory = '/gdrive/MyDrive/Colab Notebooks/lights/images'
 MODEL_PATH = '/gdrive/MyDrive/Colab Notebooks/lights/LytNetV2_weights'
 
-dataset = TrafficLightDataset(csv_file = test_file_loc, root_dir = test_image_directory)
+dataset = TrafficLightDataset(csv_file = test_file_loc, img_dir = test_image_directory)
 dataloader = DataLoader(dataset, batch_size=1, shuffle=False, num_workers=2)
 
 net = LYTNet()
