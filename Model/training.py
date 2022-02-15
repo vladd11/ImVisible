@@ -15,8 +15,8 @@ INIT_LR = 0.001
 WEIGHT_DECAY = 0.00005
 LR_DROP_MILESTONES = [400,600]
 
-train_file_dir = 'PATH/TO/TRAINING/ANNOTATIONS'
-valid_file_dir = 'PATH/TO/VALIDATION/ANNOTATIONS'
+train_file_dir = '/gdrive/Colab Notebooks/lights/training_file.csv'
+valid_file_dir = '/gdrive/Colab Notebooks/lights/validation_file.csv'
 train_img_dir = 'PATH/TO/876x657/IMAGES'
 valid_img_dir = 'PATH/TO/768x576/IMAGES'
 save_path = 'PATH/TO/SAVE/TRAINING/MODELS'
