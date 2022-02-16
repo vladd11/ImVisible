@@ -73,7 +73,7 @@ for epoch in range(MAX_EPOCHS):
         optimizer.zero_grad()
         train_total += 1
         
-        images = data['image'].type(torch.FloatTensor)
+        images = data['image'].type(torch.DoubleTensor)
         mode = data['mode'] #index of traffic light mode
         points = data['points'] #array of midline coordinates
         
