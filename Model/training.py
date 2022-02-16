@@ -1,56 +1,3 @@
-import torch
-from torch.utils.data import DataLoader
-import matplotlib.pyplot as plt
-from LYTNet import LYTNet
-from LYTNetV2 import LYTNetV2
-from dataset import TrafficLightDataset
-from loss import my_loss
-from helpers import direction_performance
-
-cuda_available = torch.cuda.is_available()
-
-BATCH_SIZE = 32
-MAX_EPOCHS = 800
-INIT_LR = 0.001
-WEIGHT_DECAY = 0.00005
-LR_DROP_MILESTONES = [400,600]
-
-train_file_dir = '/gdrive/MyDrive/Colab Notebooks/lights/training_file.csv'
-valid_file_dir = '/gdrive/MyDrive/Colab Notebooks/lights/validation_file.csv'
-train_img_dir = '/gdrive/MyDrive/Colab Notebooks/lights/dataset'
-valid_img_dir = '/gdrive/MyDrive/Colab Notebooks/lights/validation_dataset'
-save_path = '/gdrive/MyDrive/Colab Notebooks/lights'
-
-train_dataset = TrafficLightDataset(csv_file = train_file_dir, img_dir = train_img_dir)
-valid_dataset = TrafficLightDataset(csv_file = valid_file_dir, img_dir = valid_img_dir)
-
-train_dataloader = DataLoader(train_dataset, batch_size=BATCH_SIZE, shuffle=True, num_workers=8)
-valid_dataloader = DataLoader(valid_dataset, batch_size=1, shuffle=False, num_workers=2)
-
-net = LYTNet()
-
-if cuda_available:
-    net = net.cuda()
-
-loss_fn = my_loss
-
-optimizer = torch.optim.Adam(net.parameters(), lr = INIT_LR, weight_decay = 0.000005 )
-lr_scheduler = torch.optim.lr_scheduler.MultiStepLR(optimizer, LR_DROP_MILESTONES)
-
-#storing all data during training
-train_losses = [] #stores the overall training loss at each epoch
-train_MSE = [] #stores the MSE loss during training at each epoch
-train_CE = [] #stores the cross entropy loss during training at each epoch
-valid_losses = [] #stores the overall validation loss at each epoch
-valid_MSE = [] #stores the MSE loss during validation at each epoch
-valid_CE = [] #stores the cross entropy loss during validation at each epoch
-train_accuracies = [] #stores the training accuracy of the network at each epoch
-valid_accuracies = [] #stores the validation accuracy of the network at each epoch
-val_angles = [] #stores the average angle error of the network during validation at each epoch
-val_start = [] #stores the average startpoint error of the network during validation at each epoch
-val_end = [] #stores the average endpoint error of the network during validation at each epoch
-
-
 for epoch in range(MAX_EPOCHS):
     
     ##########
@@ -73,7 +20,7 @@ for epoch in range(MAX_EPOCHS):
         optimizer.zero_grad()
         train_total += 1
         
-        images = data['image'].type(torch.DoubleTensor)
+        images = data['image'].type(torch.FloatTensor)
         mode = data['mode'] #index of traffic light mode
         points = data['points'] #array of midline coordinates
         
