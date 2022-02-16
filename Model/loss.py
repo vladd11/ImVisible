@@ -11,5 +11,5 @@ def my_loss(classifier, regression, points, mode):
     cross_entropy = nn.CrossEntropyLoss()
     ce = cross_entropy(classifier, mode)
     
-    loss = ce*alpha + MSEl*(1-alpha)
+    loss = (ce*alpha + MSEl*(1-alpha)).float()
     return loss, MSEl, ce
